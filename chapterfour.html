@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.4 · Умовне форматування. Друкування</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="notebook">
+    <div class="paper">
+        <header class="header">
+            <div class="header-top">
+                <span class="class-badge">8 клас · НУШ</span>
+                <span class="chapter-label">Тема 6.4</span>
+            </div>
+            <h1 class="main-title">Умовне форматування. Друкування електронної таблиці</h1>
+            <div class="title-underline"></div>
+            <p class="subtitle">Візуальна семантика даних та фізична репрезентація цифрових даних</p>
+        </header>
+
+        <section class="intro-text">
+            <p>Умовне форматування становить собою високоавтоматизований процес зміни зовнішнього, візуального вигляду клітинки (наприклад, кольору тла, кольору та накреслення шрифту, наявності чи відсутності меж) винятково залежно від її поточного математичного значення або ж від значень в інших, пов'язаних клітинках. Надзвичайно важливо усвідомлювати, що цей інструментарій жодним чином не змінює самі вихідні числові чи текстові дані. Його головне покликання — додати до наявних даних додатковий візуально-семантичний рівень, дозволяючи дослідникові миттєво ідентифікувати загальні тенденції, виявляти критичні показники чи статистичні аномалії у велетенських масивах, що не піддаються швидкому когнітивному осягненню в суто цифровому вигляді.</p>
+        </section>
+
+        <section class="conditional-formatting-section">
+            <h2 class="section-title">Візуальна семантика даних: Технологія умовного форматування</h2>
+            
+            <div class="algorithm-steps">
+                <p class="algorithm-title">Застосування умовного форматування здійснюється за чітким, послідовним алгоритмом:</p>
+                <ol class="steps-list">
+                    <li>Точне виділення цільового діапазону клітинок, який підлягає візуальному аналізу.</li>
+                    <li>Вибір відповідного інструмента через панель керування (шлях: Основне → Стилі → Умовне форматування).</li>
+                    <li>Визначення загального способу форматування та вибір конкретного типу умови.</li>
+                    <li>Встановлення параметрів формату (відтінків кольорів, типів піктограм), що будуть автоматично застосовані лише за умови математичної істинності заданого логічного виразу.</li>
+                    <li>Підтвердження виконаної операції та перевірка результату.</li>
+                </ol>
+            </div>
+
+            <h3 class="subsection-title">Правила виділення клітинок</h3>
+            <p>Дозволяють налаштовувати умови за критеріями прямого математичного порівняння («Більше», «Менше», «Між», «Дорівнює») або за специфічними властивостями вмісту (наявність певного фрагмента тексту, збіг дати, виявлення повторюваних значень — дублікатів).</p>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Приклад: Виділення клітинок з балами вище 10</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Прізвище</td>
+                            <td>Ім'я</td>
+                            <td>Бал</td>
+                            <td>Результат</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td>Коваленко</td>
+                            <td>Андрій</td>
+                            <td class="excel-number">11</td>
+                            <td>Зараховано</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td>Шевченко</td>
+                            <td>Марія</td>
+                            <td class="excel-number">8</td>
+                            <td>Зараховано</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td>Бондаренко</td>
+                            <td>Олексій</td>
+                            <td class="excel-number">12</td>
+                            <td>Зараховано</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td>Ткаченко</td>
+                            <td>Дмитро</td>
+                            <td class="excel-number">5</td>
+                            <td>Не зараховано</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td>Кравчук</td>
+                            <td>Олена</td>
+                            <td class="excel-number">10</td>
+                            <td>Зараховано</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">До діапазону C2:C6 застосовано правило: якщо значення більше 10 — клітинка виділяється зеленим кольором тла та темно-зеленим текстом.</div>
+            </div>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Приклад: Виділення дублікатів у списку</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Номер</td>
+                            <td>Прізвище</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td class="excel-number">1</td>
+                            <td>Коваленко</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td class="excel-number">2</td>
+                            <td>Шевченко</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td class="excel-number">3</td>
+                            <td>Коваленко</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td class="excel-number">4</td>
+                            <td>Бондаренко</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td class="excel-number">5</td>
+                            <td>Шевченко</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">До діапазону B2:B6 застосовано правило виділення повторюваних значень. Прізвища «Коваленко» та «Шевченко» зустрічаються двічі й автоматично виділяються кольором.</div>
+            </div>
+
+            <h3 class="subsection-title">Правила для визначення перших та останніх елементів</h3>
+            <p>Здійснюють автоматичну ідентифікацію найвищих або найнижчих значень у масиві (наприклад, топ-10 результатів, топ-10%, останні 5 елементів). Цей метод є практичним еквівалентом поєднання складних статистичних функцій з візуальним форматуванням.</p>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Приклад: Виділення трьох найвищих балів</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Учень</td>
+                            <td>Бал</td>
+                            <td>Місце</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td>Андрій</td>
+                            <td class="excel-number">85</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td>Богдан</td>
+                            <td class="excel-number">92</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td>Вікторія</td>
+                            <td class="excel-number">78</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td>Галина</td>
+                            <td class="excel-number">95</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td>Дмитро</td>
+                            <td class="excel-number">80</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">7</td>
+                            <td>Олена</td>
+                            <td class="excel-number">88</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">8</td>
+                            <td>Петро</td>
+                            <td class="excel-number">70</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">До діапазону B2:B8 застосовано правило «Перші 3 елементи». Три найвищі бали (95, 92, 88) автоматично виділяються кольором.</div>
+            </div>
+
+            <h3 class="subsection-title">Гістограми (Data Bars)</h3>
+            <p>Забезпечують додавання безпосередньо у тло клітинки кольорової смуги. Фізична довжина цієї смуги є математично пропорційною величині числа у даній клітинці порівняно з найбільшими та найменшими значеннями всього виділеного діапазону.</p>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Приклад: Гістограма для візуалізації продажів</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Місяць</td>
+                            <td>Продажі (тис. грн)</td>
+                            <td>Візуалізація</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td>Січень</td>
+                            <td class="excel-number">45</td>
+                            <td class="excel-data-bar" style="background: linear-gradient(to right, #6b9e7a 45%, transparent 45%);">████████</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td>Лютий</td>
+                            <td class="excel-number">32</td>
+                            <td class="excel-data-bar" style="background: linear-gradient(to right, #6b9e7a 32%, transparent 32%);">██████</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td>Березень</td>
+                            <td class="excel-number">78</td>
+                            <td class="excel-data-bar" style="background: linear-gradient(to right, #6b9e7a 78%, transparent 78%);">██████████████</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td>Квітень</td>
+                            <td class="excel-number">56</td>
+                            <td class="excel-data-bar" style="background: linear-gradient(to right, #6b9e7a 56%, transparent 56%);">██████████</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td>Травень</td>
+                            <td class="excel-number">91</td>
+                            <td class="excel-data-bar" style="background: linear-gradient(to right, #6b9e7a 91%, transparent 91%);">██████████████████</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">У стовпці B застосовано гістограму: довжина кольорової смуги пропорційна значенню продажів. Найбільше значення (91) має найдовшу смугу.</div>
+            </div>
+
+            <h3 class="subsection-title">Кольорові шкали</h3>
+            <p>Застосовують градієнтне забарвлення всього виділеного діапазону. За допомогою плавного переходу кольорів (наприклад, від тривожного червоного через нейтральний жовтий до безпечного зеленого) дослідник отримує змогу миттєво оцінити загальний розподіл величин у вибірці. Наприклад, мінімальні значення маркуються червоним, середні — жовтим, а максимальні — зеленим кольором.</p>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Приклад: Кольорова шкала для оцінювання</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Учень</td>
+                            <td>Бал</td>
+                            <td>Рівень</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td>Андрій</td>
+                            <td class="excel-number" style="background: #c8e6c9;">85</td>
+                            <td>Високий</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td>Богдан</td>
+                            <td class="excel-number" style="background: #a5d6a7;">92</td>
+                            <td>Високий</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td>Вікторія</td>
+                            <td class="excel-number" style="background: #fff9c4;">78</td>
+                            <td>Середній</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td>Галина</td>
+                            <td class="excel-number" style="background: #81c784;">95</td>
+                            <td>Високий</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td>Дмитро</td>
+                            <td class="excel-number" style="background: #fff59d;">80</td>
+                            <td>Середній</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">7</td>
+                            <td>Олена</td>
+                            <td class="excel-number" style="background: #ffccbc;">62</td>
+                            <td>Низький</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">8</td>
+                            <td>Петро</td>
+                            <td class="excel-number" style="background: #ffab91;">55</td>
+                            <td>Низький</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">До діапазону B2:B8 застосовано кольорову шкалу: червоний — низькі бали, жовтий — середні, зелений — високі.</div>
+            </div>
+
+            <h3 class="subsection-title">Набори піктограм</h3>
+            <p>Передбачають призначення різноманітних символів (спрямованих стрілок, світлофорних індикаторів, прапорців) на основі алгоритмічного ранжирування даних за заданими відсотковими порогами.</p>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Приклад: Набори піктограм для порівняння з планом</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Товар</td>
+                            <td>План</td>
+                            <td>Факт</td>
+                            <td>Виконання</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td>Ноутбук</td>
+                            <td class="excel-number">100</td>
+                            <td class="excel-number">120</td>
+                            <td class="excel-icon">▲ 120%</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td>Мишка</td>
+                            <td class="excel-number">200</td>
+                            <td class="excel-number">180</td>
+                            <td class="excel-icon">▼ 90%</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td>Клавіатура</td>
+                            <td class="excel-number">150</td>
+                            <td class="excel-number">150</td>
+                            <td class="excel-icon">● 100%</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td>Монітор</td>
+                            <td class="excel-number">80</td>
+                            <td class="excel-number">95</td>
+                            <td class="excel-icon">▲ 119%</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td>Принтер</td>
+                            <td class="excel-number">50</td>
+                            <td class="excel-number">35</td>
+                            <td class="excel-icon">▼ 70%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">До стовпця D застосовано набір піктограм: зелена стрілка вгору (▲) — перевиконання плану, жовтий круг (●) — точне виконання, червона стрілка вниз (▼) — недовиконання.</div>
+            </div>
+
+            <p>Усі створені користувачем критерії та правила не є статичними; вони піддаються подальшому глибокому редагуванню. Для зміни параметрів, видалення застарілих умов чи визначення ієрархічної пріоритетності їхнього застосування використовується спеціальне діалогове вікно «Диспетчер правил умовного форматування» (або «Керування правилами»).</p>
+        </section>
+
+        <section class="printing-section">
+            <h2 class="section-title">Фізична репрезентація цифрових даних: Підготовка та друкування таблиць</h2>
+            <p>Перенесення опрацьованих, впорядкованих та алгоритмічно осмислених даних з електронного віртуального простору на фізичний носій (аркуш паперу) становить собою завершальний, але не менш відповідальний етап аналітичного циклу. З огляду на ту обставину, що електронна таблиця потенційно являє собою безмежне двовимірне полотно, процес друкування вимагає від користувача попереднього суворого просторового налаштування, інакше результати будуть непридатними для ознайомлення.</p>
+            
+            <p>Основними інструментами підготовки документа до друкування в табличних процесорах є:</p>
+            
+            <ul class="indicator-list">
+                <li><strong>Режим попереднього перегляду</strong> — забезпечує точну візуалізацію документа у тому вигляді, у якому він буде відтворений на фізичному носії друкувальним пристроєм. Цей режим є критично необхідним для запобігання ситуаціям, коли логічно пов'язані стовпці чи рядки розриваються між різними аркушами паперу.</li>
+                <li><strong>Вибір діапазону для друку (Область друку)</strong> — на відміну від традиційних текстових процесорів, де текст друкується суцільним потоком, електронна таблиця дозволяє вивести на папір не весь документ, а виключно виділений (цільовий) діапазон клітинок, ігноруючи решту наявних на аркуші допоміжних чи чорнових даних.</li>
+                <li><strong>Масштабування</strong> — специфічний і вкрай корисний параметр друку, який дає змогу автоматично, без спотворення пропорцій, зменшити або збільшити фізичний розмір шрифту та всіх елементів таблиці з єдиною метою — вмістити великий інформаційний масив на одній сторінці або на заздалегідь заданій кількості сторінок.</li>
+                <li><strong>Орієнтація сторінки</strong> — можливість вільної зміни традиційної книжкової орієнтації на альбомну. Такий крок є обов'язковим для широких таблиць із великою кількістю розрахункових стовпців.</li>
+            </ul>
+
+            <p>Належне, продумане налаштування параметрів друку гарантує збереження логічної структури таблиці та забезпечує коректність сприйняття складних математичних розрахунків у фізичному форматі.</p>
+        </section>
+
+        <section class="practical-section">
+            <h2 class="section-title">Практична робота №9</h2>
+            <div class="practical-card">
+                <span class="practical-badge">Вибирання даних в електронних таблицях</span>
+                <p>Якщо попереднє практичне заняття фокусувалося на генерації нових числових значень (суто на обчисленнях), то Практична робота №9 цілком присвячена управлінню вже існуючими масивами даних та їхньому поглибленому візуальному аналізу. Головна мета цього уроку полягає в досконалому освоєнні методології вибірки необхідних даних (шляхом сортування та багатокритеріальної фільтрації), а також у візуальному виділенні найбільш вагомої інформації.</p>
+                <p>Навчальна діяльність під час цього заняття передбачає опрацювання великих, наближених до реальності таблиць, де учні повинні самостійно:</p>
+                <ol class="steps-list">
+                    <li>Застосувати механізми фільтрації за кількома складними умовами для миттєвого знаходження потрібної вибірки записів серед сотень інших.</li>
+                    <li>Впорядкувати відфільтровані дані за обраними ієрархічними критеріями (наприклад, за алфавітом і одночасно за зменшенням ціни).</li>
+                    <li>Застосувати правила умовного форматування (зокрема, гістограми або кольорові шкали) для наочної, безпомилкової ідентифікації екстремумів чи будь-яких відхилень від заданої норми.</li>
+                </ol>
+                <p>Ця практична робота має непересічне значення, адже вона формує навички інформаційної гігієни та експрес-аналітики, що є невіддільною, фундаментальною складовою цифрової грамотності сучасної людини.</p>
+            </div>
+        </section>
+
+        <section class="nav-section">
+            <div class="nav-cards">
+                <a href="index.html" class="nav-card">
+                    <span class="nav-number">←</span>
+                    <span class="nav-title">Головна сторінка розділу</span>
+                    <span class="nav-arrow"></span>
+                </a>
+                <a href="chapterthree.html" class="nav-card">
+                    <span class="nav-number">6.3</span>
+                    <span class="nav-title">Упорядкування та фільтрування даних</span>
+                    <span class="nav-arrow">←</span>
+                </a>
+                <a href="practical8.html" class="nav-card practical">
+                    <span class="nav-number">Пр. №8</span>
+                    <span class="nav-title">Використання функцій</span>
+                    <span class="nav-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>За підручником «Інформатика 8 клас» (НУШ, 2025)</p>
+            <p>Й.Я. Ривкінд, Н.В. Морзе та ін.</p>
+        </footer>
+    </div>
+    <div class="paper-edge"></div>
+</div>
+</body>
+</html>

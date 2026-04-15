@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розбір відповідей · Електронні таблиці</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .redemption-container {
+            margin: 20px 0 30px;
+        }
+        .answer-card {
+            background: #f6f3ed;
+            border: 2px solid #b8cbdf;
+            border-radius: 20px 8px 20px 8px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            box-shadow: 5px 5px 0 #b0c2d4;
+        }
+        .answer-number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f4a74;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #a0b8cc;
+            padding-bottom: 8px;
+        }
+        .question-review {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+            background: #e4ecf3;
+            padding: 10px 15px;
+            border-radius: 30px 8px 30px 8px;
+        }
+        .correct-answer {
+            background: #c8e6c9;
+            padding: 10px 15px;
+            border-radius: 8px 30px 8px 30px;
+            margin: 12px 0;
+            border-left: 5px solid #2e7d32;
+        }
+        .correct-answer strong {
+            color: #1b5e20;
+        }
+        .explanation {
+            padding: 10px 15px;
+            color: #1e3a55;
+            line-height: 1.6;
+            border: 1px dashed #8faec9;
+            border-radius: 12px;
+            margin-top: 10px;
+            background: #fdfbf8;
+        }
+        .wrong-options {
+            margin: 8px 0;
+            padding-left: 20px;
+            color: #6d4c41;
+        }
+        .back-to-test {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .back-btn {
+            background: #5e7e9c;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            border: 1px solid #8faec9;
+        }
+        .back-btn:hover {
+            background: #3f6a8a;
+        }
+    </style>
+</head>
+<body>
+<div class="notebook">
+    <div class="paper">
+        <header class="header">
+            <div class="header-top">
+                <span class="class-badge">8 клас · НУШ</span>
+                <span class="chapter-label">Розбір відповідей</span>
+            </div>
+            <h1 class="main-title">Пояснення до тесту</h1>
+            <div class="title-underline"></div>
+            <p class="subtitle">Детальний аналіз кожного запитання: правильні відповіді та чому інші варіанти неправильні</p>
+        </header>
+
+        <div class="redemption-container">
+            
+            <div class="answer-card">
+                <div class="answer-number">Запитання 1</div>
+                <div class="question-review">Яка адреса клітинки знаходиться на перетині стовпця F і рядка 15?</div>
+                <div class="correct-answer">
+                    <strong>Правильна відповідь: F15</strong>
+                </div>
+                <div class="explanation">
+                    В електронних таблицях адреса клітинки завжди складається з літери стовпця та номера рядка. Спочатку вказується стовпець (літера), потім рядок (число). Варіант 15F є неправильним порядком. F:15 — це позначення всього стовпця F до рядка 15, а не окремої клітинки. 15:F — некоректний синтаксис.
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 2</div>
+                <div class="question-review">Який тип посилання записується як $A$5?</div>
+                <div class="correct-answer">
+                    <strong>Правильна відповідь: Абсолютне</strong>
+                </div>
+                <div class="explanation">
+                    Абсолютне посилання містить символ долара ($) перед літерою стовпця та перед номером рядка. Це фіксує обидві координати, тому при копіюванні формули адреса залишається незмінною. Відносне посилання записується без знаків долара (A5). Мішане посилання містить $ лише перед однією з координат ($A5 або A$5).
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 3</div>
+                <div class="question-review">При копіюванні формули =B3+C5 на один рядок вниз вона перетвориться на:</div>
+                <div class="correct-answer">
+                    <strong>Правильна відповідь: =B4+C6</strong>
+                </div>
+                <div class="explanation">
+                    Обидва посилання у формулі є відносними. При копіюванні на один рядок вниз номер рядка збільшується на 1: B3 стає B4, C5 стає C6. Літери стовпців не змінюються, оскільки копіювання відбувається лише по вертикалі. Якби копіювання виконувалося також по горизонталі, змінювалися б і літери стовпців.
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 4</div>
+                <div class="question-review">Яка функція обчислює середнє арифметичне значення?</div>
+                <div class="correct-answer">
+                    <strong>Правильна відповідь: AVERAGE</strong>
+                </div>
+                <div class="explanation">
+                    AVERAGE (в українській версії — СРЗНАЧ) обчислює суму всіх чисел у діапазоні та ділить її на їхню кількість. SUM обчислює лише суму. MAX знаходить найбільше значення. COUNT підраховує кількість числових значень, але не обчислює середнє.
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 5</div>
+                <div class="question-review">Який результат поверне функція =IF(8>5; "Так"; "Ні")?</div>
+                <div class="correct-answer">
+                    <strong>Правильна відповідь: Так</strong>
+                </div>
+                <div class="explanation">
+                    Функція IF (ЯКЩО) перевіряє умову в першому аргументі. 8>5 — це істинне твердження (TRUE). Якщо умова істинна, функція повертає другий аргумент — у цьому випадку текст «Так». Якби умова була хибною (наприклад, 5>8), функція повернула б третій аргумент — «Ні».
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 6</div>
+                <div class="question-review">Які з наведених форматів є форматами даних в електронних таблицях?</div>
+                <div class="correct-answer">
+                    <strong>Правильні відповіді: Числовий, Грошовий, Відсотковий, Дата</strong>
+                </div>
+                <div class="explanation">
+                    В електронних таблицях існують такі основні формати даних: Загальний, Числовий, Грошовий, Фінансовий, Дата, Час, Відсотковий, Дробовий, Експоненційний, Текстовий. «Математичний» не є окремим форматом даних — це категорія функцій, а не формат відображення клітинки.
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 7</div>
+                <div class="question-review">Для чого використовується функція RANK?</div>
+                <div class="correct-answer">
+                    <strong>Правильна відповідь: Для визначення рангу (місця) числа в списку</strong>
+                </div>
+                <div class="explanation">
+                    Функція RANK (РАНГ) визначає позицію числа в упорядкованому списку. Наприклад, найбільше число отримує ранг 1 (при сортуванні за спаданням). Для обчислення суми використовується SUM, для максимуму — MAX, для округлення — ROUND.
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 8</div>
+                <div class="question-review">Які дії виконує сортування даних?</div>
+                <div class="correct-answer">
+                    <strong>Правильні відповіді: Змінює порядок рядків відповідно до значень у вибраному стовпці; Може виконуватися за кількома рівнями</strong>
+                </div>
+                <div class="explanation">
+                    Сортування фізично переставляє рядки місцями, змінюючи їхній порядок. Можна задати кілька рівнів сортування (наприклад, спочатку за прізвищем, потім за іменем). Приховування рядків — це функція фільтрування, а не сортування. Видалення дублікатів — окрема команда, не пов'язана із сортуванням.
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 9</div>
+                <div class="question-review">Що відбувається з прихованими рядками під час фільтрування?</div>
+                <div class="correct-answer">
+                    <strong>Правильна відповідь: Вони тимчасово не відображаються, їх можна повернути</strong>
+                </div>
+                <div class="explanation">
+                    Фільтрування лише тимчасово приховує рядки, які не відповідають заданим умовам. Дані в цих рядках не видаляються і не змінюються. Щоб повернути всі рядки, достатньо очистити фільтр або вибрати опцію «Виділити все» у випадаючому списку фільтра.
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 10</div>
+                <div class="question-review">Які види умовного форматування існують?</div>
+                <div class="correct-answer">
+                    <strong>Правильні відповіді: Гістограми, Кольорові шкали, Набори піктограм, Правила виділення клітинок</strong>
+                </div>
+                <div class="explanation">
+                    Умовне форматування в Excel включає: гістограми (Data Bars) — кольорові смуги всередині клітинок; кольорові шкали — градієнтне забарвлення; набори піктограм — стрілки, світлофори, прапорці; правила виділення — форматування клітинок, що задовольняють певні умови. Кругові діаграми належать до графічних об'єктів, а не до умовного форматування.
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 11</div>
+                <div class="question-review">Яка клавіша використовується для циклічної зміни типу посилання під час редагування формули?</div>
+                <div class="correct-answer">
+                    <strong>Правильна відповідь: F4</strong>
+                </div>
+                <div class="explanation">
+                    Клавіша F4 є гарячою клавішею для перемикання між типами посилань. При послідовному натисканні адреса змінюється за циклом: A1 → $A$1 → A$1 → $A1 → A1. F2 використовується для редагування клітинки, F8 — для розширення виділення, F12 — для збереження документа як.
+                </div>
+            </div>
+
+            <div class="answer-card">
+                <div class="answer-number">Запитання 12</div>
+                <div class="question-review">Який параметр друку дозволяє вмістити велику таблицю на одній сторінці?</div>
+                <div class="correct-answer">
+                    <strong>Правильна відповідь: Масштабування</strong>
+                </div>
+                <div class="explanation">
+                    Масштабування автоматично зменшує або збільшує вміст таблиці, щоб вона помістилася на заданій кількості сторінок. Можна вказати «Розмістити аркуш на одній сторінці». Орієнтація (книжкова/альбомна) змінює лише розташування сторінки. Область друку визначає, який саме діапазон друкувати. Колонтитули — це текст у верхній і нижній частинах сторінки.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="back-to-test">
+            <a href="test.html" class="back-btn">← Повернутися до тесту</a>
+        </div>
+
+        <section class="nav-section">
+            <div class="nav-cards">
+                <a href="index.html" class="nav-card">
+                    <span class="nav-number">←</span>
+                    <span class="nav-title">Головна сторінка розділу</span>
+                    <span class="nav-arrow"></span>
+                </a>
+                <a href="test.html" class="nav-card">
+                    <span class="nav-number">📝</span>
+                    <span class="nav-title">Пройти тест ще раз</span>
+                    <span class="nav-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>За підручником «Інформатика 8 клас» (НУШ, 2025)</p>
+            <p>Й.Я. Ривкінд, Н.В. Морзе та ін.</p>
+        </footer>
+    </div>
+    <div class="paper-edge"></div>
+</div>
+</body>
+</html>

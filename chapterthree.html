@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.3 · Упорядкування та фільтрування даних</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="notebook">
+    <div class="paper">
+        <header class="header">
+            <div class="header-top">
+                <span class="class-badge">8 клас · НУШ</span>
+                <span class="chapter-label">Тема 6.3</span>
+            </div>
+            <h1 class="main-title">Упорядкування та фільтрування даних у табличному процесорі</h1>
+            <div class="title-underline"></div>
+            <p class="subtitle">Аналітичне впорядкування та багатокритеріальне фільтрування даних</p>
+        </header>
+
+        <section class="intro-text">
+            <p>Опрацювання значних за обсягом табличних масивів неминуче стикається з проблемою інформаційного перенавантаження дослідника. Розв'язання цієї проблеми вимагає наявності потужних інструментів для реструктуризації та цільового вилучення інформації. В електронних таблицях ці завдання бездоганно реалізуються через механізми упорядкування (сортування) та фільтрування.</p>
+        </section>
+
+        <section class="sorting-section">
+            <h2 class="section-title">Механізми упорядкування (Сортування)</h2>
+            <p>Упорядкування передбачає фізичну зміну розташування рядків у таблиці відповідно до лексикографічних чи числових значень у визначеному ключовому стовпці. Дані можуть бути впорядковані суворо за зростанням або спаданням числових величин, в алфавітному (чи зворотному) порядку для текстових даних, або ж у хронологічному порядку для дат. Сучасні розширені можливості табличних процесорів дозволяють здійснювати складне, багаторівневе сортування. Це означає, що у випадку повного збігу значень у першому ключовому стовпці для кількох записів, система автоматично звертається до критеріїв другого стовпця (наприклад, спочатку сортування за прізвищем, а при збігу прізвищ — за іменами).</p>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Приклад таблиці до сортування</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Прізвище</td>
+                            <td>Ім'я</td>
+                            <td>Клас</td>
+                            <td>Середній бал</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td>Коваленко</td>
+                            <td>Андрій</td>
+                            <td class="excel-number">8-А</td>
+                            <td class="excel-number">9,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td>Шевченко</td>
+                            <td>Марія</td>
+                            <td class="excel-number">8-Б</td>
+                            <td class="excel-number">11,0</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td>Бондаренко</td>
+                            <td>Олексій</td>
+                            <td class="excel-number">8-А</td>
+                            <td class="excel-number">8,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td>Коваленко</td>
+                            <td>Ірина</td>
+                            <td class="excel-number">8-В</td>
+                            <td class="excel-number">10,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td>Ткаченко</td>
+                            <td>Дмитро</td>
+                            <td class="excel-number">8-Б</td>
+                            <td class="excel-number">7,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">7</td>
+                            <td>Кравчук</td>
+                            <td>Олена</td>
+                            <td class="excel-number">8-А</td>
+                            <td class="excel-number">12,0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">Початковий вигляд таблиці з даними про учнів. Дані не впорядковані.</div>
+            </div>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Таблиця після сортування за прізвищем (за зростанням)</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Прізвище</td>
+                            <td>Ім'я</td>
+                            <td>Клас</td>
+                            <td>Середній бал</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td>Бондаренко</td>
+                            <td>Олексій</td>
+                            <td class="excel-number">8-А</td>
+                            <td class="excel-number">8,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td>Коваленко</td>
+                            <td>Андрій</td>
+                            <td class="excel-number">8-А</td>
+                            <td class="excel-number">9,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td>Коваленко</td>
+                            <td>Ірина</td>
+                            <td class="excel-number">8-В</td>
+                            <td class="excel-number">10,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td>Кравчук</td>
+                            <td>Олена</td>
+                            <td class="excel-number">8-А</td>
+                            <td class="excel-number">12,0</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td>Ткаченко</td>
+                            <td>Дмитро</td>
+                            <td class="excel-number">8-Б</td>
+                            <td class="excel-number">7,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">7</td>
+                            <td>Шевченко</td>
+                            <td>Марія</td>
+                            <td class="excel-number">8-Б</td>
+                            <td class="excel-number">11,0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">Таблиця після застосування сортування за стовпцем «Прізвище» від А до Я.</div>
+            </div>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Таблиця після багаторівневого сортування: спочатку за класом, потім за балом (за спаданням)</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Прізвище</td>
+                            <td>Ім'я</td>
+                            <td>Клас</td>
+                            <td>Середній бал</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td>Кравчук</td>
+                            <td>Олена</td>
+                            <td class="excel-number">8-А</td>
+                            <td class="excel-number">12,0</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td>Коваленко</td>
+                            <td>Андрій</td>
+                            <td class="excel-number">8-А</td>
+                            <td class="excel-number">9,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td>Бондаренко</td>
+                            <td>Олексій</td>
+                            <td class="excel-number">8-А</td>
+                            <td class="excel-number">8,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td>Шевченко</td>
+                            <td>Марія</td>
+                            <td class="excel-number">8-Б</td>
+                            <td class="excel-number">11,0</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td>Ткаченко</td>
+                            <td>Дмитро</td>
+                            <td class="excel-number">8-Б</td>
+                            <td class="excel-number">7,5</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">7</td>
+                            <td>Коваленко</td>
+                            <td>Ірина</td>
+                            <td class="excel-number">8-В</td>
+                            <td class="excel-number">10,5</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">Багаторівневе сортування: спочатку рядки згруповано за класом (8-А, 8-Б, 8-В), а всередині кожного класу відсортовано за середнім балом від найбільшого до найменшого.</div>
+            </div>
+        </section>
+
+        <section class="filtering-section">
+            <h2 class="section-title">Методологія фільтрування</h2>
+            <p>На відміну від алгоритмів упорядкування, фільтрування принципово не змінює порядку розташування записів. Його сутність полягає у тимчасовому приховуванні з поля зору тих рядків, які не відповідають жорстко визначеним користувачем умовам. Для активації цього аналітичного режиму користувачеві необхідно виділити відповідний діапазон або ж просто клацнути будь-яку клітинку таблиці та застосувати команду з меню (наприклад, Дані → Сортування й фільтрування → Фільтр).</p>
+            <p>Застосування фільтра завжди супроводжується специфічними візуальними індикаторами, які інформують дослідника про стан масиву:</p>
+            <ul class="indicator-list">
+                <li>У заголовках усіх стовпців з'являються характерні кнопки з виспадними списками.</li>
+                <li>Значок у стовпці, до якого безпосередньо було застосовано критерії фільтрації, змінює свій вигляд на піктограму лійки.</li>
+                <li>Номери відфільтрованих рядків на лівій панелі змінюють колір (зазвичай на синій) і містять очевидні пропуски у нумерації, що свідчить про наявність прихованої інформації.</li>
+            </ul>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Вихідна таблиця перед фільтруванням</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Прізвище</td>
+                            <td>Ім'я</td>
+                            <td>Клас</td>
+                            <td>Інформатика</td>
+                            <td>Математика</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">2</td>
+                            <td>Коваленко</td>
+                            <td>Андрій</td>
+                            <td>8-А</td>
+                            <td class="excel-number">11</td>
+                            <td class="excel-number">10</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">3</td>
+                            <td>Шевченко</td>
+                            <td>Марія</td>
+                            <td>8-Б</td>
+                            <td class="excel-number">8</td>
+                            <td class="excel-number">7</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">4</td>
+                            <td>Бондаренко</td>
+                            <td>Олексій</td>
+                            <td>8-А</td>
+                            <td class="excel-number">12</td>
+                            <td class="excel-number">11</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">5</td>
+                            <td>Коваленко</td>
+                            <td>Ірина</td>
+                            <td>8-В</td>
+                            <td class="excel-number">9</td>
+                            <td class="excel-number">8</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">6</td>
+                            <td>Ткаченко</td>
+                            <td>Дмитро</td>
+                            <td>8-Б</td>
+                            <td class="excel-number">7</td>
+                            <td class="excel-number">6</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">7</td>
+                            <td>Кравчук</td>
+                            <td>Олена</td>
+                            <td>8-А</td>
+                            <td class="excel-number">10</td>
+                            <td class="excel-number">12</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header">8</td>
+                            <td>Мельник</td>
+                            <td>Петро</td>
+                            <td>8-В</td>
+                            <td class="excel-number">6</td>
+                            <td class="excel-number">5</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">Повна таблиця з даними про успішність учнів. Усі 8 записів відображаються.</div>
+            </div>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Результат фільтрування: учні класу 8-А</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Прізвище</td>
+                            <td>Ім'я</td>
+                            <td>Клас</td>
+                            <td>Інформатика</td>
+                            <td>Математика</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header" style="color: #1e5a7d;">2</td>
+                            <td>Коваленко</td>
+                            <td>Андрій</td>
+                            <td>8-А</td>
+                            <td class="excel-number">11</td>
+                            <td class="excel-number">10</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header" style="color: #1e5a7d;">4</td>
+                            <td>Бондаренко</td>
+                            <td>Олексій</td>
+                            <td>8-А</td>
+                            <td class="excel-number">12</td>
+                            <td class="excel-number">11</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header" style="color: #1e5a7d;">7</td>
+                            <td>Кравчук</td>
+                            <td>Олена</td>
+                            <td>8-А</td>
+                            <td class="excel-number">10</td>
+                            <td class="excel-number">12</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">Застосовано фільтр за стовпцем «Клас» з умовою «8-А». Зверніть увагу: номери рядків (2, 4, 7) збереглися, але мають синій колір — це означає, що частина рядків прихована.</div>
+            </div>
+
+            <div class="excel-table-wrapper">
+                <div class="excel-title">Результат фільтрування за кількома умовами: бал з інформатики більше 9</div>
+                <table class="excel-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>C</th>
+                            <th>D</th>
+                            <th>E</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="excel-row-header">1</td>
+                            <td>Прізвище</td>
+                            <td>Ім'я</td>
+                            <td>Клас</td>
+                            <td>Інформатика</td>
+                            <td>Математика</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header" style="color: #1e5a7d;">2</td>
+                            <td>Коваленко</td>
+                            <td>Андрій</td>
+                            <td>8-А</td>
+                            <td class="excel-number">11</td>
+                            <td class="excel-number">10</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header" style="color: #1e5a7d;">4</td>
+                            <td>Бондаренко</td>
+                            <td>Олексій</td>
+                            <td>8-А</td>
+                            <td class="excel-number">12</td>
+                            <td class="excel-number">11</td>
+                        </tr>
+                        <tr>
+                            <td class="excel-row-header" style="color: #1e5a7d;">7</td>
+                            <td>Кравчук</td>
+                            <td>Олена</td>
+                            <td>8-А</td>
+                            <td class="excel-number">10</td>
+                            <td class="excel-number">12</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="excel-note">Застосовано числовий фільтр «більше 9» до стовпця «Інформатика». Відображаються лише учні, які мають з інформатики 10, 11 або 12 балів.</div>
+            </div>
+
+            <p>Фільтрування відзначається надзвичайно високим ступенем логічної адаптивності. Користувач має змогу застосовувати фільтрування за кількома дискретними значеннями одночасно. Наприклад, щоб відобразити в базі даних лише учнів з іменами «Андрій» або «Олена», достатньо відкрити меню фільтра у відповідному стовпці, зняти загальну позначку «Виділити все» і встановити прапорці виключно біля шуканих імен. Крім того, система уможливлює послідовне фільтрування в кількох різних стовпцях. У такому випадку загальна умова формується на основі математичної логічної операції кон'юнкції (оператор І). Для прикладу, застосування фільтра до стовпця «Сума балів» з умовою >35 та одночасне застосування фільтра до стовпця «Бал з інформатики» з умовою >8 призведе до того, що на екрані залишаться лише ті рядки, де неухильно і водночас виконуються обидві умови: (Сума балів > 35) і (Бал з інформатики > 8). Скасування результатів фільтрування і повернення таблиці до початкового стану здійснюється через меню очищення фільтрів або повторним встановленням прапорця «Виділити все».</p>
+        </section>
+
+        <section class="nav-section">
+            <div class="nav-cards">
+                <a href="index.html" class="nav-card">
+                    <span class="nav-number">←</span>
+                    <span class="nav-title">Головна сторінка розділу</span>
+                    <span class="nav-arrow"></span>
+                </a>
+                <a href="chaptertwo.html" class="nav-card">
+                    <span class="nav-number">6.2</span>
+                    <span class="nav-title">Математичні, статистичні та логічні функції</span>
+                    <span class="nav-arrow">←</span>
+                </a>
+                <a href="chapterfour.html" class="nav-card">
+                    <span class="nav-number">6.4</span>
+                    <span class="nav-title">Умовне форматування. Друкування</span>
+                    <span class="nav-arrow">→</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>За підручником «Інформатика 8 клас» (НУШ, 2025)</p>
+            <p>Й.Я. Ривкінд, Н.В. Морзе та ін.</p>
+        </footer>
+    </div>
+    <div class="paper-edge"></div>
+</div>
+</body>
+</html>
